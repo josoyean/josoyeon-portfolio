@@ -3,7 +3,6 @@ import Header from "./pages/Header";
 import AboutContent from "./pages/about/AboutContent";
 import ExperienceContent from "./pages/experience/ExperienceContent";
 import ProjectContent from "./pages/project/ProjectContent";
-import StarContent from "./pages/StarContent";
 import SkillContent from "./pages/skill/SkillContent";
 import ToolsContent from "./pages/skill/ToolsContent";
 
