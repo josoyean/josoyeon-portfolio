@@ -4,7 +4,6 @@ export interface ProjectContentTypes {
   elementIndex?: number;
   LinkName?: string;
   introduce?: string;
-  pageBtn?: boolean;
   selectItem?: boolean;
   item?: IndividualItemsTypes;
 }
@@ -18,8 +17,6 @@ export interface IndividualItemsTypes {
   startDt: string;
   endDt: string | null;
   blogLink: string;
-  codeBtn: boolean;
-  pageBtn: boolean;
   codeLink: string;
   parts: string[];
   introduce: string;

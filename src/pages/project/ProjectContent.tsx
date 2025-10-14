@@ -53,7 +53,6 @@ function ProjectContent() {
                 elementIndex={index}
                 item={item}
                 LinkName={item.linkName}
-                pageBtn={item.pageBtn}
               ></ContentItem>
             );
           })}

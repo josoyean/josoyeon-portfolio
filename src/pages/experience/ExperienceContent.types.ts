@@ -20,6 +20,5 @@ export interface ProjectsItemsTypes {
   result: string;
   parts: string[];
   skills_img: string[];
-  pageOpen: boolean;
   pageLink: string;
 }

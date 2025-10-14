@@ -6,14 +6,14 @@ function PopupContent({
   item,
   closeClick,
   elementIndex = undefined,
-  pageBtn,
+
   introduce,
 }: ProjectContentTypes) {
   return (
     <Popup className="popup">
       <div className="content">
         <div className="btn-box">
-          {pageBtn && (
+          {item?.pageLink && (
             <div
               style={{
                 backgroundColor: "#f280ca",
@@ -32,41 +32,44 @@ function PopupContent({
               <Link size={20} color="#fff" />
             </div>
           )}
-
-          <div
-            style={{
-              backgroundColor: "#f280ca",
-              borderRadius: "50%",
-              width: "28px",
-              height: "28px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              DemoLink(`${item?.codeLink}`, e);
-            }}
-          >
-            <Github size={20} color="#fff" />
-          </div>
-          <div
-            style={{
-              backgroundColor: "#f280ca",
-              borderRadius: "50%",
-              width: "28px",
-              height: "28px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              cursor: "pointer",
-            }}
-            onClick={(e) => {
-              DemoLink(`${item?.blogLink}`, e);
-            }}
-          >
-            <AppWindow size={20} color="#fff" />
-          </div>
+          {item?.codeLink && (
+            <div
+              style={{
+                backgroundColor: "#f280ca",
+                borderRadius: "50%",
+                width: "28px",
+                height: "28px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                DemoLink(`${item?.codeLink}`, e);
+              }}
+            >
+              <Github size={20} color="#fff" />
+            </div>
+          )}
+          {item?.blogLink && (
+            <div
+              style={{
+                backgroundColor: "#f280ca",
+                borderRadius: "50%",
+                width: "28px",
+                height: "28px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                DemoLink(`${item?.blogLink}`, e);
+              }}
+            >
+              <AppWindow size={20} color="#fff" />
+            </div>
+          )}
 
           <div
             style={{
@@ -108,12 +111,6 @@ function PopupContent({
                 return <em key={index}>{itemText} </em>;
               })}
             </span>
-            <span className="skillText">
-              SKILLS :
-              {item?.skills?.map((items, index) => {
-                return <em key={index}>{"#" + items} </em>;
-              })}
-            </span>
           </div>
         </div>
         <div className="sub">
@@ -124,6 +121,11 @@ function PopupContent({
             })}
           </ul>
         </div>
+        <SkillsImg>
+          {item?.skills?.map((items, index) => {
+            return <img key={index} src={items} alt="html"></img>;
+          })}
+        </SkillsImg>
       </div>
     </Popup>
   );
@@ -148,5 +150,16 @@ const Introduce = styled.div`
   & span {
     font-size: 1rem;
     color: #828282;
+  }
+`;
+
+const SkillsImg = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  img {
+    width: 24px;
+    height: 24px;
+    margin: 0;
   }
 `;

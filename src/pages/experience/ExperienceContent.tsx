@@ -71,21 +71,13 @@ function ExperienceContent() {
               </span>
               <span className="name">{item.company}</span>
               <span className="position">{item.job}</span>
-              {/* <span className="skill">
-              사용 스킬 :{" "}
-              {item.skills.map((skill, index) => (
-                <React.Fragment key={index}>
-                  {skill}
-                  {index === item.skills.length - 1 ? "" : ", "}
-                </React.Fragment>
-              ))}
-            </span> */}
+
               <div className="list-box">
                 {item?.project_seq?.map((project) => (
                   <div className="list" key={project.id}>
                     <span className="title">
                       {project.name}
-                      {project?.pageOpen && (
+                      {project?.pageLink && (
                         <div
                           style={{
                             backgroundColor: "#f280ca",

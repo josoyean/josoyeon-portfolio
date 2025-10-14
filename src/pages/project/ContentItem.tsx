@@ -11,7 +11,7 @@ function ContentItem({
   LinkName,
   item,
   closeClick,
-  pageBtn,
+
   introduce,
 }: ProjectContentTypes & { item: IndividualItemsTypes }) {
   return (
@@ -38,7 +38,6 @@ function ContentItem({
             <PopupContent
               item={item}
               introduce={introduce}
-              pageBtn={pageBtn}
               key={elementIndex}
               closeClick={closeClick}
               elementIndex={elementIndex}
