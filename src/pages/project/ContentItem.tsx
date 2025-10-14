@@ -1,51 +1,53 @@
-import React from "react";
-import styled from "styled-components";
+import { AnimatePresence, motion } from "framer-motion";
 import PopupContent from "../PopupContent";
 import type {
+  IndividualItemsTypes,
   ProjectContentTypes,
-  ProjectItemsTypes,
 } from "./ProjectContent.types";
 function ContentItem({
   handleClick,
-  elementIndex,
+  elementIndex = undefined,
   selectItem,
   LinkName,
   item,
   closeClick,
   pageBtn,
   introduce,
-}: ProjectContentTypes & { item: ProjectItemsTypes }) {
+}: ProjectContentTypes & { item: IndividualItemsTypes }) {
   return (
     <div
       className="project-box"
       onClick={(e) => {
-        if (!elementIndex) return;
+        if (elementIndex === undefined) return;
         handleClick?.(elementIndex, e);
       }}
     >
-      <img
-        src={process.env.PUBLIC_URL + `/images/` + LinkName + `.png`}
-        alt="html"
-      ></img>
-      {selectItem && (
-        <PopupContent
-          item={item}
-          introduce={introduce}
-          pageBtn={pageBtn}
-          key={elementIndex}
-          closeClick={closeClick}
-          elementIndex={elementIndex}
-        ></PopupContent>
-      )}
+      <AnimatePresence>
+        <img src={item.img} alt="html"></img>
+        {selectItem && (
+          <motion.div
+            className="modal "
+            style={{ zIndex: 9999 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              duration: 0.24,
+            }}
+          >
+            <PopupContent
+              item={item}
+              introduce={introduce}
+              pageBtn={pageBtn}
+              key={elementIndex}
+              closeClick={closeClick}
+              elementIndex={elementIndex}
+            ></PopupContent>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 export default ContentItem;
-
-const ItemTitle = styled.span`
-  color: #f2b3dc;
-  font-size: 20px;
-  display: block;
-  font-weight: 500;
-`;

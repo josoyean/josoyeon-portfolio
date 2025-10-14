@@ -18,6 +18,7 @@ function Header() {
     setTimeout(function () {
       var PageLocation =
         (labelTag?.offsetTop as number) - (labelTag?.scrollTop as number);
+
       window.scrollTo({ top: PageLocation - 60, behavior: "smooth" });
     }, 70);
   };
@@ -41,14 +42,14 @@ function Header() {
           <ListItem onClick={(e) => onContentClick("#skills-label")}>
             {"<Skills />"}
           </ListItem>
+          <ListItem onClick={(e) => onContentClick("#tools-label")}>
+            {"<Tools />"}
+          </ListItem>
           <ListItem onClick={(e) => onContentClick("#experience-label")}>
             {"<Experience />"}
           </ListItem>
           <ListItem onClick={(e) => onContentClick("#project-label")}>
             {"<Projects />"}
-          </ListItem>
-          <ListItem onClick={(e) => onContentClick("#contact-label")}>
-            {"<Contact />"}
           </ListItem>
         </ul>
         <img
@@ -75,7 +76,7 @@ function Header() {
                 menuClick(e);
               }}
             >
-              About
+              About Me
             </span>
             <span
               className="Skills"
@@ -85,6 +86,15 @@ function Header() {
               }}
             >
               Skills
+            </span>
+            <span
+              className="tools"
+              onClick={(e) => {
+                onContentClick("#tools-label");
+                menuClick(e);
+              }}
+            >
+              Tools
             </span>
             <span
               className="Experience"
@@ -103,15 +113,6 @@ function Header() {
               }}
             >
               Projects
-            </span>
-            <span
-              className="Contact"
-              onClick={(e) => {
-                onContentClick("#contact-label");
-                menuClick(e);
-              }}
-            >
-              Contact
             </span>
           </div>
         </div>

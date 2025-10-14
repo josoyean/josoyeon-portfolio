@@ -150,6 +150,9 @@ header .hamburger {
   padding: 20px 20px;
   margin: 50px auto 70px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.25);
@@ -164,14 +167,10 @@ header .hamburger {
 }
 
 .profile-box .img-inform {
-  margin-top: 30px;
   display: flex;
   justify-content: space-around;
 }
-.profile-box .img-inform > img {
-  /* width: 300px;
-  height: auto; */
-}
+
 .profile-box .img-inform span {
   font-size: 1.2rem;
   text-align: left;
@@ -209,71 +208,7 @@ header .hamburger {
     opacity: 0;
   }
 }
-.skills-content {
-  padding: 20px;
-}
-.skill-box {
-  display: grid;
-  gap: 40px 20px;
-  grid-template-columns: repeat(4, 1fr);
-}
-.skill-box li {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  flex-direction: column;
-  row-gap: 15px;
-}
-.skill-box span {
-  font-size: 1.2rem;
-}
-.skill-box .item-box img {
-  width: 150px;
-}
 
-.skill-box .item-box > * {
-  position: absolute;
-  width: 150px;
-
-  backface-visibility: hidden;
-}
-.skill-box .item-card {
-  perspective: 1100px;
-  width: auto;
-  height: auto;
-}
-.skill-box .item-box {
-  position: relative;
-  transform-style: preserve-3d;
-  width: 150px;
-  height: 150px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s;
-  transform: perspective(800px) rotateY(0deg);
-}
-.skill-box .item-card:hover {
-  transform: perspective(800px) rotateY(180deg);
-}
-.skill-box .item-card:hover .item-back {
-  transform: rotateY(180deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.skill-box .item-card:hover .item-box {
-  transform: rotateY(180deg);
-}
-.skill-box .item-back {
-  display: none;
-}
-
-.skill-box .item-back span {
-  transform: rotateY(180deg);
-  font-size: 0.8rem;
-  color: #f280ca;
-}
 .experience-box .item-box {
   display: flex;
   flex-direction: column;
@@ -313,7 +248,7 @@ header .hamburger {
 .experience-box .list-box {
   margin-top: 10px;
   display: grid;
-  gap: 10px;
+  gap: 25px;
   grid-template-columns: repeat(2, 1fr);
 }
 .experience-box .list-box .title {
@@ -452,57 +387,6 @@ header .hamburger {
     top: -75px;
   }
 }
-.contact-box {
-  display: flex;
-  column-gap: 25px;
-  align-items: center;
-}
-.contact-box > div {
-  width: 50%;
-  height: fit-content;
-}
-.contact-right form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  row-gap: 15px;
-}
-.contact-right form textarea,
-.contact-right form input {
-  border: 1px solid #bcbcbc;
-  box-sizing: border-box;
-  width: 100%;
-  height: 35px;
-  padding: 0 7px;
-  border-radius: 3px;
-  color: #101010;
-  font-size: 1.2rem;
-  caret-color: #f280ca;
-}
-.contact-right form textarea:focus,
-.contact-right form input:focus {
-  outline: none;
-}
-.contact-right form textarea {
-  height: 200px;
-  padding: 7px;
-  resize: none;
-}
-.contact-right form span {
-  font-size: 1.7rem;
-}
-.contact-right form input[type="submit"] {
-  background-color: #fff;
-}
-.contact-left {
-  width: 50%;
-  overflow: hidden;
-  border-radius: 8px;
-}
-.contact-left img {
-  width: 100%;
-}
-
 .popup .content {
   width: 600px;
   padding: 20px;
@@ -838,15 +722,6 @@ header .close {
   button {
     padding: 4px 8px;
     border-radius: 15px;
-  }
-
-  .contact-box {
-    flex-direction: column;
-    row-gap: 40px;
-    padding: 20px;
-  }
-  .contact-box > div {
-    width: 100%;
   }
 
   .project-box .btn-box {

@@ -1,75 +1,108 @@
-import React from "react";
 import styled from "styled-components";
 import type { ProjectContentTypes } from "./project/ProjectContent.types";
-
+import { Github, Link, AppWindow, X } from "lucide-react";
+import { DemoLink, StartDtToEndDt } from "../bin/common";
 function PopupContent({
   item,
   closeClick,
-  elementIndex,
+  elementIndex = undefined,
   pageBtn,
   introduce,
 }: ProjectContentTypes) {
-  const DemoLink = (link: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    window.open(link, "_blank");
-  };
   return (
     <Popup className="popup">
       <div className="content">
         <div className="btn-box">
-          {pageBtn ? (
-            <button
+          {pageBtn && (
+            <div
+              style={{
+                backgroundColor: "#f280ca",
+                borderRadius: "50%",
+                width: "28px",
+                height: "28px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
               onClick={(e) => {
                 DemoLink(`${item?.pageLink}`, e);
               }}
             >
-              Page Open
-            </button>
-          ) : (
-            ""
+              <Link size={20} color="#fff" />
+            </div>
           )}
 
-          <button
+          <div
+            style={{
+              backgroundColor: "#f280ca",
+              borderRadius: "50%",
+              width: "28px",
+              height: "28px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
             onClick={(e) => {
               DemoLink(`${item?.codeLink}`, e);
             }}
           >
-            Git Open
-          </button>
-          <button
+            <Github size={20} color="#fff" />
+          </div>
+          <div
+            style={{
+              backgroundColor: "#f280ca",
+              borderRadius: "50%",
+              width: "28px",
+              height: "28px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
             onClick={(e) => {
               DemoLink(`${item?.blogLink}`, e);
             }}
           >
-            Blog Open
-          </button>
-          <button
-            className="close"
+            <AppWindow size={20} color="#fff" />
+          </div>
+
+          <div
+            style={{
+              backgroundColor: "#f280ca",
+              borderRadius: "50%",
+              width: "28px",
+              height: "28px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
             onClick={(e) => {
-              if (!elementIndex) return;
+              if (elementIndex === undefined) return;
               closeClick?.(elementIndex, e);
             }}
           >
-            X
-          </button>
+            <X size={20} color="#fff" />
+          </div>
         </div>
         <div className="main">
           <Introduce className="">
             <span className="">{introduce}</span>
           </Introduce>
-          <img
-            src={process.env.PUBLIC_URL + `/images/` + item?.LinkName + `.png`}
-            alt="html"
-          ></img>
+          <img src={item?.img} alt="html"></img>
 
           <div className="infor-box">
-            <span className="date"> DATE : {item?.ItemDate}</span>
-            <span className="position"> POSITION : {item?.Position}</span>
+            <span className="date">
+              DATE : {StartDtToEndDt(item?.startDt, item?.endDt)}
+            </span>
+            <span className="position"> POSITION : {item?.position}</span>
             <span className="mywork">
               MYWORK :
-              {item?.MyWork.map((items, index) => {
+              {item?.myWork.map((items, index) => {
                 let itemText = items + ",";
-                if (index === item?.MyWork.length - 1) {
+                if (index === item?.myWork.length - 1) {
                   itemText = items;
                 }
                 return <em key={index}>{itemText} </em>;
@@ -77,7 +110,7 @@ function PopupContent({
             </span>
             <span className="skillText">
               SKILLS :
-              {item?.SkillText.map((items, index) => {
+              {item?.skills?.map((items, index) => {
                 return <em key={index}>{"#" + items} </em>;
               })}
             </span>
@@ -86,7 +119,7 @@ function PopupContent({
         <div className="sub">
           <span>상세 역할</span>
           <ul className="job-box">
-            {item?.part.map((items, index) => {
+            {item?.parts?.map((items, index) => {
               return <li key={index}>{items} </li>;
             })}
           </ul>
@@ -107,7 +140,7 @@ const Popup = styled.div`
   right: 0;
   bottom: 0;
   z-index: 999999 !important;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
 `;
 
 const Introduce = styled.div`

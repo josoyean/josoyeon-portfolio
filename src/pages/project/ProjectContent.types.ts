@@ -6,21 +6,23 @@ export interface ProjectContentTypes {
   introduce?: string;
   pageBtn?: boolean;
   selectItem?: boolean;
-  item?: ProjectItemsTypes;
+  item?: IndividualItemsTypes;
 }
-export interface ProjectItemsTypes {
+export interface IndividualItemsTypes {
   id: string;
-  LinkName: string;
-  SkillText: string[];
-  MyWork: string[];
-  Position: string;
-  Title: string;
-  ItemDate: string;
+  linkName: string;
+  skills: string[];
+  myWork: string[];
+  position: string;
+  title: string;
+  startDt: string;
+  endDt: string | null;
   blogLink: string;
-  CodeBtn: boolean;
+  codeBtn: boolean;
   pageBtn: boolean;
   codeLink: string;
-  part: string[];
+  parts: string[];
   introduce: string;
   pageLink?: string | undefined;
+  img: string;
 }
