@@ -109,9 +109,9 @@ function ExperienceContent() {
                       {StartDtToEndDt(project?.startDt, project?.endDt)}
                     </span>
 
-                    <div className="">
+                    {/* <div className="">
                       <span>성과 - {project.result}</span>
-                    </div>
+                    </div> */}
                     <div className="">
                       <span>
                         역할

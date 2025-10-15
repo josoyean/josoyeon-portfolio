@@ -17,7 +17,7 @@ export interface ProjectsItemsTypes {
   seq: number;
   name: string;
   info: string;
-  result: string;
+  // result: string;
   parts: string[];
   skills_img: string[];
   pageLink: string;

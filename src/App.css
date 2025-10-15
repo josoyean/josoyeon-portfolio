@@ -267,10 +267,12 @@ header .hamburger {
   color: #fff;
   background-color: #f280ca;
 }
-
+.experience-box .list-box ul {
+  margin-top: 5px;
+}
 .experience-box .list-box li {
-  font-size: 0.7rem;
-  margin-bottom: 2px;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
   padding-left: 15px;
   box-sizing: border-box;
   position: relative;
@@ -508,6 +510,7 @@ header .close {
     font-size: 14px;
   }
   .center {
+    /* width: 100%; */
     width: calc(100% - 40px);
   }
   header {
@@ -596,6 +599,7 @@ header .close {
     font-size: 12px;
   }
   .center {
+    /* width: 100%; */
     width: calc(100% - 40px);
   }
   header {
@@ -632,7 +636,8 @@ header .close {
   }
   .profile-box {
     padding: 20px 20px;
-    width: calc(100% - 40px);
+    width: 100%;
+    /* width: calc(100% - 40px); */
     margin: 50px auto 50px;
   }
   .img-inform {
@@ -669,11 +674,7 @@ header .close {
   .profile-box .img-inform > img {
     width: 200px;
   }
-  .interview-box li .question {
-    /* flex-direction: column;
-    align-items: flex-start !important;
-    row-gap: 5px; */
-  }
+
   .interview-box li .question em {
     font-size: 17px !important;
     display: none;
@@ -687,6 +688,7 @@ header .close {
 
   .interview-box ul {
     width: 100%;
+    /* width: calc(100% - 40px); */
   }
   .star-item {
     width: 100px;

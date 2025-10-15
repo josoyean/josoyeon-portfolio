@@ -75,16 +75,7 @@ function AboutContent() {
                 ></img>
                 <ProfileText>서울특별시 광진구</ProfileText>
               </li>
-              <li
-                className="pointer"
-                onClick={() => {
-                  window.navigator.clipboard
-                    .writeText("dlfjswhtnals@naver.com")
-                    .then(() => {
-                      alert("복사완료");
-                    });
-                }}
-              >
+              <li className="pointer">
                 <img
                   src={process.env.PUBLIC_URL + `/images/email.png`}
                   alt="email"
