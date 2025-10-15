@@ -37,14 +37,17 @@ function Header() {
         ></img>
         <ul>
           <ListItem onClick={(e) => onContentClick("#about-label")}>
-            {"<About />"}
+            {"<About Me />"}
+          </ListItem>
+          <ListItem onClick={(e) => onContentClick("#interview-label")}>
+            {"<Interviews />"}
           </ListItem>
           <ListItem onClick={(e) => onContentClick("#skills-label")}>
-            {"<Skills />"}
+            {"<Skills & Tools />"}
           </ListItem>
-          <ListItem onClick={(e) => onContentClick("#tools-label")}>
+          {/* <ListItem onClick={(e) => onContentClick("#tools-label")}>
             {"<Tools />"}
-          </ListItem>
+          </ListItem> */}
           <ListItem onClick={(e) => onContentClick("#experience-label")}>
             {"<Experience />"}
           </ListItem>
@@ -79,23 +82,32 @@ function Header() {
               About Me
             </span>
             <span
+              className="Interviews"
+              onClick={(e) => {
+                onContentClick("#interview-label");
+                menuClick(e);
+              }}
+            >
+              Interviews
+            </span>
+            <span
               className="Skills"
               onClick={(e) => {
                 onContentClick("#skills-label");
                 menuClick(e);
               }}
             >
-              Skills
+              Skills & Tools
             </span>
-            <span
-              className="tools"
+            {/* <span
+              className="Tools"
               onClick={(e) => {
                 onContentClick("#tools-label");
                 menuClick(e);
               }}
             >
               Tools
-            </span>
+            </span> */}
             <span
               className="Experience"
               onClick={(e) => {

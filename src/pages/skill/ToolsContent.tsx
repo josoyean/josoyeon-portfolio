@@ -63,6 +63,9 @@ const ToolsBox = styled.ul`
       margin: auto;
     }
   }
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export default ToolsContent;

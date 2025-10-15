@@ -39,3 +39,14 @@ export const getIndividualProjects = async () => {
 
   return data;
 };
+
+export const getInterviews = async () => {
+  const { data, error } = await supabase
+    .from("interview")
+    .select("*")
+    .order("order", { ascending: true });
+
+  if (error) throw error;
+
+  return data;
+};

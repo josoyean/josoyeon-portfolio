@@ -236,7 +236,7 @@ header .hamburger {
   font-size: 1.6rem;
   font-weight: 600;
   color: #101010;
-  margin: 5px 0;
+  /* margin: 5px 0; */
 }
 .experience-box .item-box span.skill,
 .experience-box .item-box span.position {
@@ -253,7 +253,7 @@ header .hamburger {
 }
 .experience-box .list-box .title {
   color: #101010;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   display: flex;
   align-items: center;
   column-gap: 10px;
@@ -525,7 +525,7 @@ header .close {
     top: 50px;
   }
   .experience-box .list-box {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px;
   }
   .profile-box {
@@ -544,7 +544,7 @@ header .close {
   }
   .skill-box {
     gap: 30px 20px;
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr) !important; */
   }
   .profile-box .img-inform > img {
     width: 250px;
@@ -664,10 +664,29 @@ header .close {
   }
   .skill-box {
     gap: 30px 20px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   .profile-box .img-inform > img {
     width: 200px;
+  }
+  .interview-box li .question {
+    /* flex-direction: column;
+    align-items: flex-start !important;
+    row-gap: 5px; */
+  }
+  .interview-box li .question em {
+    font-size: 17px !important;
+    display: none;
+  }
+  .interview-box li .question span {
+    font-size: 17px !important;
+  }
+  .interview-box li .answer span {
+    line-height: 17px !important;
+  }
+
+  .interview-box ul {
+    width: 100%;
   }
   .star-item {
     width: 100px;
@@ -686,10 +705,6 @@ header .close {
   .skill-box .item-box img,
   .skill-box .item-box > * {
     width: 100%;
-    /* height: auto; */
-    /* height: 100%; */
-    /* width: 150px; */
-    /* height: 150px; */
   }
   .skill-box .item-box {
     /* height: 120px; */
@@ -699,7 +714,7 @@ header .close {
     /* height: auto; */
   }
   .profile-box.projects-box {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
     column-gap: 10px;
     row-gap: 10px;
   }

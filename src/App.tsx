@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./pages/Header";
 import AboutContent from "./pages/about/AboutContent";
 import ExperienceContent from "./pages/experience/ExperienceContent";
+import InterviewContent from "./pages/interview/InterviewContent";
 import ProjectContent from "./pages/project/ProjectContent";
 import SkillContent from "./pages/skill/SkillContent";
 import ToolsContent from "./pages/skill/ToolsContent";
@@ -41,11 +42,12 @@ function App() {
     <div className="App">
       <Header></Header>
       <AboutContent></AboutContent>
+      <InterviewContent />
       <SkillContent />
       <ToolsContent />
       <ExperienceContent></ExperienceContent>
       <ProjectContent></ProjectContent>
-      {/* <div className="star-box">{starItem}</div> */}
+
       <footer>
         <div className="center">
           <span>

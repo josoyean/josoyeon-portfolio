@@ -65,11 +65,18 @@ function ExperienceContent() {
         <div className="profile-box experience-box">
           {data?.map((item) => (
             <div className="item-box" key={item.id}>
-              <span className="date">
-                {StartDtToEndDt(item?.startDt, item?.endDt)}
-                <em>{handleDt(item.startDt, item.endDt)}</em>
-              </span>
-              <span className="name">{item.company}</span>
+              <div
+                style={{
+                  display: "flex",
+                  marginBottom: "5px",
+                  alignItems: "center",
+                }}
+              >
+                <span className="name">{item.company}</span>
+                <span className="date">
+                  <em>{handleDt(item.startDt, item.endDt)}</em>
+                </span>
+              </div>
               <span className="position">{item.job}</span>
 
               <div className="list-box">
@@ -136,9 +143,20 @@ export default ExperienceContent;
 const ProfileText = styled.span`
   color: #101010;
   font-size: 1.9rem;
-  display: block;
-  text-align: center;
   font-weight: 500;
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  justify-content: center;
+  > em {
+    font-size: 0.7rem;
+    margin-left: 7px;
+    padding: 2px 5px;
+    box-sizing: border-box;
+    background-color: #bababa;
+    color: #fff;
+    border-radius: 3px;
+  }
 `;
 const SkillsGroup = styled.span`
   display: flex;
