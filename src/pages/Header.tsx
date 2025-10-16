@@ -45,9 +45,7 @@ function Header() {
           <ListItem onClick={(e) => onContentClick("#skills-label")}>
             {"<Skills & Tools />"}
           </ListItem>
-          {/* <ListItem onClick={(e) => onContentClick("#tools-label")}>
-            {"<Tools />"}
-          </ListItem> */}
+
           <ListItem onClick={(e) => onContentClick("#experience-label")}>
             {"<Experience />"}
           </ListItem>
@@ -99,15 +97,7 @@ function Header() {
             >
               Skills & Tools
             </span>
-            {/* <span
-              className="Tools"
-              onClick={(e) => {
-                onContentClick("#tools-label");
-                menuClick(e);
-              }}
-            >
-              Tools
-            </span> */}
+
             <span
               className="Experience"
               onClick={(e) => {

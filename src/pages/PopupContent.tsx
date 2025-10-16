@@ -98,11 +98,10 @@ function PopupContent({
 
           <div className="infor-box">
             <span className="date">
-              DATE : {StartDtToEndDt(item?.startDt, item?.endDt)}
+              {StartDtToEndDt(item?.startDt, item?.endDt)}
             </span>
-            <span className="position"> POSITION : {item?.position}</span>
+            <span className="position"> {item?.position}</span>
             <span className="mywork">
-              MYWORK :
               {item?.myWork.map((items, index) => {
                 let itemText = items + ",";
                 if (index === item?.myWork.length - 1) {
@@ -114,7 +113,7 @@ function PopupContent({
           </div>
         </div>
         <div className="sub">
-          <span>상세 역할</span>
+          <span>Description</span>
           <ul className="job-box">
             {item?.parts?.map((items, index) => {
               return <li key={index}>{items} </li>;
