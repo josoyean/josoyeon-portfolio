@@ -50,7 +50,11 @@ lang - react, styled-components , typesjavascript, react-query 
 
 #### 3) 프로젝트 이미지를 클릭을 하면 팝업이 나오는 형식
 
-<iframe src="https://play-tv.kakao.com/embed/player/cliplink/458626487?service=daum_tistory" width="460" height="331" frameborder="0" allowfullscreen="true"></iframe>
+
+
+https://github.com/user-attachments/assets/5a3e7ef3-9d4f-4601-8997-42fec43b9b5c
+
+
 
 ---
 
