@@ -26,10 +26,10 @@ function AboutContent() {
           <span className="text"></span> <span className="cursor">|</span>
         </div>
         <span className="introduce">
-          웹 프론트엔드 개발 2년차 조소연입니다. <br />
-          사용자가 만족하는 UI/UX와 인터랙티브 웹 서비스를 만드는 것을
-          최우선으로 생각하며, <br />
-          React와 TypeScript를 활용한 다양한 프로젝트를 경험했습니다.
+          웹 프론트엔드 개발 경력 2년 이상인 조소연입니다. <br /> 사용자의
+          흐름을 방해하지 않는 UI/UX를 고민하며, <br /> 인터랙션이 살아있는 웹
+          서비스를 만들어 왔습니다. <br /> React와 TypeScript를 활용해 실시간
+          기능, 알림, 앱 연동 등 서비스 특성을 고려한 프로젝트를 진행했습니다.
         </span>
       </div>
       <motion.div
