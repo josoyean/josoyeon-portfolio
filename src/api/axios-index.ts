@@ -23,7 +23,8 @@ export const getTools = async () => {
 export const getExperiences = async () => {
   const { data, error } = await supabase
     .from("experiences")
-    .select("*,project_seq(*)");
+    .select("*,project_seq(*)")
+    .order("project_seq", { ascending: false });
 
   if (error) throw error;
 
