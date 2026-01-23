@@ -41,9 +41,3 @@ lang - react, styled-components , typesjavascript, react-query 
 ---
 
 [https://github.com/josoyean/josoyeon-portfolio](https://github.com/josoyean/josoyeon-portfolio)
-
- [GitHub - josoyean/josoyeon-portfolio
-
-Contribute to josoyean/josoyeon-portfolio development by creating an account on GitHub.
-
-github.com](https://github.com/josoyean/josoyeon-portfolio)
