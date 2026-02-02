@@ -14,6 +14,7 @@ function ContentItem({
 
   introduce,
 }: ProjectContentTypes & { item: IndividualItemsTypes }) {
+
   return (
     <div
       className="project-box"
@@ -26,7 +27,7 @@ function ContentItem({
         <img src={item.img} alt="html"></img>
         {selectItem && (
           <motion.div
-            className="modal "
+            className="modal"
             style={{ zIndex: 9999 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

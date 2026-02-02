@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ContentItem from "./ContentItem";
 import type { IndividualItemsTypes } from "./ProjectContent.types";
@@ -27,6 +27,14 @@ function ProjectContent() {
     setIsProfileSelect(newArr);
   };
 
+  // 팝업 오픈시 스크롤 바 숨기기/보이기
+  useEffect(() => {
+    if (isProfileSelect.some((item) => item === true)) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isProfileSelect]);
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

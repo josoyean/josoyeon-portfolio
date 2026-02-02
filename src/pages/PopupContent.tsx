@@ -2,13 +2,14 @@ import styled from "styled-components";
 import type { ProjectContentTypes } from "./project/ProjectContent.types";
 import { Github, Link, AppWindow, X } from "lucide-react";
 import { DemoLink, StartDtToEndDt } from "../bin/common";
+import React from "react";
 function PopupContent({
   item,
   closeClick,
   elementIndex = undefined,
-
   introduce,
 }: ProjectContentTypes) {
+  
   return (
     <Popup className="popup">
       <div className="content">
@@ -93,6 +94,10 @@ function PopupContent({
         <div className="main">
           <Introduce className="">
             <span className="">{introduce}</span>
+            <br />
+            <em dangerouslySetInnerHTML={{ __html: item?.infor || '' }}>
+              
+            </em>
           </Introduce>
           <img src={item?.img} alt="html"></img>
 
@@ -120,11 +125,14 @@ function PopupContent({
             })}
           </ul>
         </div>
+        <div className="sub" style={{borderTop: "1px solid #aaaaaa"}}>
+           <span>Skills</span>
         <SkillsImg>
-          {item?.skills?.map((items, index) => {
-            return <img key={index} src={items} alt="html"></img>;
+          {item?.skillLists?.map((items: {name: string, text: string}, index) => {
+            return (<div key={index}><span>{items.name}</span> : <span>{items.text}</span></div>)
           })}
         </SkillsImg>
+        </div>
       </div>
     </Popup>
   );
@@ -142,10 +150,20 @@ const Popup = styled.div`
   bottom: 0;
   z-index: 999999 !important;
   background-color: rgba(0, 0, 0, 0.2);
+  .content{
+    /* max-height: 700px; */
+    height: 85vh;
+    overflow-y: auto;
+  }
 `;
 
 const Introduce = styled.div`
   box-sizing: border-box;
+  text-align: center;
+  & em {
+    font-size: 0.8rem;
+    color: #828282;
+  }
   & span {
     font-size: 1rem;
     color: #828282;
@@ -154,11 +172,11 @@ const Introduce = styled.div`
 
 const SkillsImg = styled.div`
   display: flex;
-  align-items: center;
-  gap: 20px;
-  img {
-    width: 24px;
-    height: 24px;
-    margin: 0;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px; 
+ span {
+    font-size: 1rem;
+    color: #828282;
   }
 `;

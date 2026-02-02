@@ -22,4 +22,6 @@ export interface IndividualItemsTypes {
   introduce: string;
   pageLink?: string | undefined;
   img: string;
+  skillLists?: { name: string; text: string }[];
+  infor?: string;
 }

@@ -7,6 +7,7 @@ export interface ExperienceItemsTypes {
   job: string;
   skills: string[];
   project_seq?: ProjectsItemsTypes[];
+
 }
 
 export interface ProjectsItemsTypes {
