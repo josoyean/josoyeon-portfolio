@@ -41,7 +41,6 @@ lang - react, styled-components , typesjavascript, react-query 
 
 #### 3) 프로젝트 이미지를 클릭하면 상세 내용을 확인할 수 있는 팝업 UI를 구성
 
-<iframe src="https://play-tv.kakao.com/embed/player/cliplink/458626487?service=daum_tistory" width="460" height="331" frameborder="0" allowfullscreen="true"></iframe>
 
 화면 전환 없이도 정보를 확인할 수 있도록 사용자 흐름을 개선
 
