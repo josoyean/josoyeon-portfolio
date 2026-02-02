@@ -32,7 +32,6 @@ lang - react, styled-components , typesjavascript, react-query 
 
 #### ![](https://blog.kakaocdn.net/dna/bkD33A/dJMb9MizJvV/AAAAAAAAAAAAAAAAAAAAAG-69gVUe_1DpGditlNeU3eSsX4dO2TbeUHhsYTYJBUU/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=eadz%2Bu5Gl4%2FKu8Hufh7fi8crbuM%3D)![](https://blog.kakaocdn.net/dna/bT8Sc1/dJMb9d8fDSf/AAAAAAAAAAAAAAAAAAAAAPATfhs_dd2xWMCasUceO_gCcOcmz2s1L9A1SddyiRDi/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=J47SghiuiZxdds57D6OakzxJn2o%3D)
 
-[##_Image|kage@bGx89x/dJMb862mfBz/AAAAAAAAAAAAAAAAAAAAAL1f3ln1KaRL6x9gXtW9kxYTkr-VAgjxetCND7qD3LHN/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=6YhzfcLRJx1NAUgfoYT6aHrL9Zk%3D|CDM|1.3|{"originWidth":354,"originHeight":69,"style":"alignCenter","width":585,"height":114,"filename":"스크린샷 2025-10-16 오후 3.46.10.png"}_##]
 
 슈퍼베이스 설치, api 연결을 하고 어느 테이블에 있는 데이터를 설정한후 슈퍼베이스 DB에 넣은 데이터를 useQuery를 이용해서 데이터를 호출했습니다. 보안을 위해 슈퍼베이스url,슈퍼베이스key를 env에 넣어 외부에서 못보게 작업을 했습니다. 
 
