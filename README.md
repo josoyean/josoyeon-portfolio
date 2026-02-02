@@ -20,15 +20,19 @@ lang - react, styled-components , typesjavascript, react-query 
 
 ## **구현 기능**
 
-\- 슈퍼베이스 활용해서 DB와 API 통해서 제작
+\- Supabase를 활용해 DB 및 API를 연동
 
- - 소개 문장 타이핑 애니메이션 적용
+ - 소개 영역에 타이핑 애니메이션을 적용
 
-\- 프로젝트 이미지를 클릭을 하면 팝업이 나오는 형식
+\- 프로젝트 이미지를 클릭하면 상세 내용을 확인할 수 있는 팝업 UI를 구성
 
 ---
 
-#### 1) 슈퍼베이스 활용해서 DB와 API 통해서 제작
+#### 1) Supabase를 활용해 DB 및 API를 연동
+
+#### ![](https://blog.kakaocdn.net/dna/bkD33A/dJMb9MizJvV/AAAAAAAAAAAAAAAAAAAAAG-69gVUe_1DpGditlNeU3eSsX4dO2TbeUHhsYTYJBUU/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=eadz%2Bu5Gl4%2FKu8Hufh7fi8crbuM%3D)![](https://blog.kakaocdn.net/dna/bT8Sc1/dJMb9d8fDSf/AAAAAAAAAAAAAAAAAAAAAPATfhs_dd2xWMCasUceO_gCcOcmz2s1L9A1SddyiRDi/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1772290799&allow_ip=&allow_referer=&signature=J47SghiuiZxdds57D6OakzxJn2o%3D)
+
+[##_Image|kage@bGx89x/dJMb862mfBz/AAAAAAAAAAAAAAAAAAAAAL1f3ln1KaRL6x9gXtW9kxYTkr-VAgjxetCND7qD3LHN/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1772290799&amp;allow_ip=&amp;allow_referer=&amp;signature=6YhzfcLRJx1NAUgfoYT6aHrL9Zk%3D|CDM|1.3|{"originWidth":354,"originHeight":69,"style":"alignCenter","width":585,"height":114,"filename":"스크린샷 2025-10-16 오후 3.46.10.png"}_##]
 
 슈퍼베이스 설치, api 연결을 하고 어느 테이블에 있는 데이터를 설정한후 슈퍼베이스 DB에 넣은 데이터를 useQuery를 이용해서 데이터를 호출했습니다. 보안을 위해 슈퍼베이스url,슈퍼베이스key를 env에 넣어 외부에서 못보게 작업을 했습니다. 
 
@@ -36,8 +40,18 @@ lang - react, styled-components , typesjavascript, react-query 
 
 타이핑 하고 싶은 문구를 지정하고 0.15초 마다 typing를 호출 한다. typing은 문구를 하나씩 넣어주는데 &가 있으면 줄바꿈 태그를 넣어 주면 되고 없으면 그 문자 그대로 값을 넣어 타이핑 효과를 줬습니다. 문구가 끝나면 초기화를 하고 다시 처음부터 작업 하게하면 된다.
 
-#### 3) 프로젝트 이미지를 클릭을 하면 팝업이 나오는 형식
+#### 3) 프로젝트 이미지를 클릭하면 상세 내용을 확인할 수 있는 팝업 UI를 구성
+
+<iframe src="https://play-tv.kakao.com/embed/player/cliplink/458626487?service=daum_tistory" width="460" height="331" frameborder="0" allowfullscreen="true"></iframe>
+
+화면 전환 없이도 정보를 확인할 수 있도록 사용자 흐름을 개선
 
 ---
 
 [https://github.com/josoyean/josoyeon-portfolio](https://github.com/josoyean/josoyeon-portfolio)
+
+ [GitHub - josoyean/josoyeon-portfolio
+
+Contribute to josoyean/josoyeon-portfolio development by creating an account on GitHub.
+
+github.com](https://github.com/josoyean/josoyeon-portfolio)
