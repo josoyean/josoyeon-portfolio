@@ -29,6 +29,7 @@ button {
 }
 .App {
   position: relative;
+  overflow-x: hidden;
 }
 
 .App .star-box {
