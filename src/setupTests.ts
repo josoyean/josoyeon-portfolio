@@ -1,5 +1,13 @@
 import '@testing-library/jest-dom';
 
+jest.mock(
+  "@vercel/speed-insights/react",
+  () => ({
+    SpeedInsights: () => null,
+  }),
+  { virtual: true }
+);
+
 class MockIntersectionObserver implements IntersectionObserver {
   readonly root: Element | Document | null = null;
   readonly rootMargin = "";
