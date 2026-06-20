@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
-import { ArrowUp, Github, Mail } from "lucide-react";
+import { ArrowUp, FileText, Github, Mail } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { asset } from "../../lib/utils";
 
 const EMAIL = "dlfjswhtnals@naver.com";
+const RESUME_PDF = asset(
+  encodeURI("/조소연_자기소개서_경력기술서.pdf")
+);
 
 export function FloatingActions() {
   const [visible, setVisible] = useState(false);
@@ -44,6 +48,14 @@ export function FloatingActions() {
           aria-label="이메일 복사"
         >
           <Mail size={22} />
+        </button>
+        <button
+          type="button"
+          className="floating-actions__btn"
+          onClick={() => window.open(RESUME_PDF, "_blank", "noopener,noreferrer")}
+          aria-label="이력서 PDF"
+        >
+          <FileText size={22} />
         </button>
         <button
           type="button"

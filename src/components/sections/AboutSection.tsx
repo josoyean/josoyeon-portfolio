@@ -7,6 +7,10 @@ import {
 import { SectionWrapper } from "../ui";
 import { asset } from "../../lib/utils";
 
+const RESUME_PDF = asset(
+  encodeURI("/조소연_자기소개서_경력기술서.pdf")
+);
+
 const PROFILE_DETAILS = [
   { icon: Calendar, label: "1996.10.16" },
   { icon: MapPin, label: "서울특별시 광진구" },
@@ -38,6 +42,16 @@ export function AboutSection() {
               /
             </span>
             <a href="mailto:dlfjswhtnals@naver.com">Email</a>
+            <span className="hero__links-divider" aria-hidden>
+              /
+            </span>
+            <a
+              href={RESUME_PDF}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
             <span className="hero__links-divider" aria-hidden>
               /
             </span>
