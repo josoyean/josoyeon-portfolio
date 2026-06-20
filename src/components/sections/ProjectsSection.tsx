@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
 import { fetchIndividualProjects, queryKeys } from "../../lib/queries";
+import { getErrorMessage } from "../../lib/utils";
 import {
+  EmptyState,
   ErrorState,
   LoadingState,
   SectionTitle,
@@ -12,7 +14,7 @@ import { ProjectModal } from "./ProjectModal";
 import type { IndividualProject } from "../../types";
 
 export function ProjectsSection() {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: queryKeys.projects,
     queryFn: fetchIndividualProjects,
   });
@@ -25,10 +27,15 @@ export function ProjectsSection() {
 
       {isLoading && <LoadingState />}
       {isError && (
-        <ErrorState message="프로젝트 데이터를 불러오지 못했습니다." />
+        <ErrorState
+          message={`프로젝트 데이터를 불러오지 못했습니다. (${getErrorMessage(error)})`}
+        />
+      )}
+      {!isLoading && !isError && data?.length === 0 && (
+        <EmptyState message="등록된 프로젝트가 없습니다. Supabase individual-projects 테이블을 확인하세요." />
       )}
 
-      {data && (
+      {!!data?.length && (
         <ul className="projects-grid">
           {data.map((project) => (
             <li key={project.id}>

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { ChevronDown } from "lucide-react";
 import { fetchInterviews, queryKeys } from "../../lib/queries";
+import { SanitizedHtml } from "../../lib/sanitizeHtml";
+import { getErrorMessage } from "../../lib/utils";
 import {
+  EmptyState,
   ErrorState,
   LoadingState,
   SectionTitle,
@@ -10,12 +13,20 @@ import {
 } from "../ui";
 
 export function InterviewSection() {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: queryKeys.interviews,
     queryFn: fetchInterviews,
   });
 
   const [openId, setOpenId] = useState<string | null>(null);
+  const hasInitialized = useRef(false);
+
+  useEffect(() => {
+    if (data?.length && !hasInitialized.current) {
+      setOpenId(data[0].id);
+      hasInitialized.current = true;
+    }
+  }, [data]);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -27,10 +38,15 @@ export function InterviewSection() {
 
       {isLoading && <LoadingState />}
       {isError && (
-        <ErrorState message="인터뷰 데이터를 불러오지 못했습니다." />
+        <ErrorState
+          message={`인터뷰 데이터를 불러오지 못했습니다. (${getErrorMessage(error)})`}
+        />
+      )}
+      {!isLoading && !isError && data?.length === 0 && (
+        <EmptyState message="등록된 인터뷰가 없습니다. Supabase interview 테이블을 확인하세요." />
       )}
 
-      {data && (
+      {!!data?.length && (
         <ul className="interview-list">
           {data.map((item, index) => {
             const isOpen = openId === item.id;
@@ -52,9 +68,10 @@ export function InterviewSection() {
                   <ChevronDown size={16} className="interview-item__chevron" />
                 </button>
                 {isOpen && (
-                  <div className="interview-item__answer">
-                    <div dangerouslySetInnerHTML={{ __html: item.answer }} />
-                  </div>
+                  <SanitizedHtml
+                    html={item.answer}
+                    className="interview-item__answer"
+                  />
                 )}
               </li>
             );

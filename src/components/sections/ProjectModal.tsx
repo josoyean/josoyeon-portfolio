@@ -1,9 +1,11 @@
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { AppWindow, ExternalLink, Github, X } from "lucide-react";
 import type { IndividualProject } from "../../types";
 import { formatPeriod } from "../../lib/dates";
 import { openExternalLink } from "../../lib/utils";
+import { SanitizedHtml } from "../../lib/sanitizeHtml";
+import { useFocusTrap } from "../../hooks/useFocusTrap";
 import { IconButton } from "../ui";
 
 interface ProjectModalProps {
@@ -12,21 +14,14 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    },
-    [onClose]
-  );
+  const modalRef = useFocusTrap<HTMLDivElement>(true, onClose);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", handleKeyDown);
     return () => {
       document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleKeyDown]);
+  }, []);
 
   return (
     <motion.div
@@ -41,6 +36,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       aria-labelledby="project-modal-title"
     >
       <motion.div
+        ref={modalRef}
         className="modal"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -87,7 +83,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="modal__intro">
             <span>{project.introduce}</span>
             {project.infor && (
-              <em dangerouslySetInnerHTML={{ __html: project.infor }} />
+              <SanitizedHtml html={project.infor} as="em" className="" />
             )}
           </div>
 

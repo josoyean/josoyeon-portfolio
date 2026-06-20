@@ -48,7 +48,7 @@ export async function fetchExperiences(): Promise<ExperienceItem[]> {
   const { data, error } = await supabase
     .from("experiences")
     .select("*, project_seq(*)")
-    .order("project_seq", { ascending: false });
+    .order("created_at", { ascending: false });
 
   if (error) throw error;
   return (data ?? []) as ExperienceItem[];

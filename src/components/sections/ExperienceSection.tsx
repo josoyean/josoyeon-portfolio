@@ -8,8 +8,9 @@ import {
   formatPeriod,
   getDurationLabel,
 } from "../../lib/dates";
-import { openExternalLink } from "../../lib/utils";
+import { openExternalLink, getErrorMessage } from "../../lib/utils";
 import {
+  EmptyState,
   ErrorState,
   IconButton,
   LoadingState,
@@ -18,7 +19,7 @@ import {
 } from "../ui";
 
 export function ExperienceSection() {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     queryKey: queryKeys.experiences,
     queryFn: fetchExperiences,
   });
@@ -41,10 +42,15 @@ export function ExperienceSection() {
 
       {isLoading && <LoadingState />}
       {isError && (
-        <ErrorState message="경력 데이터를 불러오지 못했습니다." />
+        <ErrorState
+          message={`경력 데이터를 불러오지 못했습니다. (${getErrorMessage(error)})`}
+        />
+      )}
+      {!isLoading && !isError && data?.length === 0 && (
+        <EmptyState message="등록된 경력이 없습니다. Supabase experiences 테이블과 RLS 정책을 확인하세요." />
       )}
 
-      {data && (
+      {!!data?.length && (
         <ul className="experience-list">
           {data.map((company) => (
             <li key={company.id} className="experience-company">

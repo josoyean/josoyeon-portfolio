@@ -15,3 +15,8 @@ export function scrollToSection(selector: string, offset = 72): void {
   const top = element.getBoundingClientRect().top + window.scrollY - offset;
   window.scrollTo({ top, behavior: "smooth" });
 }
+
+export function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) return error.message;
+  return "알 수 없는 오류";
+}

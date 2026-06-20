@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-jest.mock("@vercel/analytics/react", () => ({
-  Analytics: () => null,
+jest.mock("@vercel/speed-insights/react", () => ({
+  SpeedInsights: () => null,
 }));
 
 test("renders portfolio header navigation", () => {

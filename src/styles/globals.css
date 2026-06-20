@@ -146,6 +146,11 @@ img {
   color: var(--color-text);
 }
 
+.header__nav-link--active {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
 .header__menu-btn {
   display: none;
   padding: 6px;
@@ -191,6 +196,11 @@ img {
 
 .header__mobile-link:hover {
   color: var(--color-text);
+}
+
+.header__mobile-link--active {
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 /* Hero */

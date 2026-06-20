@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useActiveSection } from "../../hooks/useActiveSection";
 import { useScrollProgress } from "../../hooks/useScrollProgress";
 import { asset, scrollToSection } from "../../lib/utils";
 
@@ -11,14 +12,20 @@ const NAV_ITEMS = [
   { label: "Projects", href: "#projects" },
 ] as const;
 
+const SECTION_IDS = NAV_ITEMS.map(({ href }) => href);
+
 export function Header() {
   const progress = useScrollProgress();
+  const activeSection = useActiveSection(SECTION_IDS);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigate = (href: string) => {
     scrollToSection(href);
     setMenuOpen(false);
   };
+
+  const isActive = (href: string) =>
+    activeSection === href.replace("#", "");
 
   return (
     <header className="header">
@@ -43,8 +50,9 @@ export function Header() {
             <button
               key={href}
               type="button"
-              className="header__nav-link"
+              className={`header__nav-link ${isActive(href) ? "header__nav-link--active" : ""}`}
               onClick={() => navigate(href)}
+              aria-current={isActive(href) ? "true" : undefined}
             >
               {label}
             </button>
@@ -73,8 +81,9 @@ export function Header() {
           <button
             key={href}
             type="button"
-            className="header__mobile-link"
+            className={`header__mobile-link ${isActive(href) ? "header__mobile-link--active" : ""}`}
             onClick={() => navigate(href)}
+            aria-current={isActive(href) ? "true" : undefined}
           >
             {label}
           </button>

@@ -45,6 +45,14 @@ export function ErrorState({ message }: { message: string }) {
   );
 }
 
+export function EmptyState({ message }: { message: string }) {
+  return (
+    <div className="state-message" role="status">
+      <span>{message}</span>
+    </div>
+  );
+}
+
 interface IconButtonProps {
   onClick?: (e: React.MouseEvent) => void;
   children: React.ReactNode;
