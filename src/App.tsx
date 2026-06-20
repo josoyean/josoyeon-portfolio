@@ -1,37 +1,28 @@
-import "./App.css";
-import Header from "./pages/Header";
-import TopButton from "./pages/TopButton";
-import AboutContent from "./pages/about/AboutContent";
-import ExperienceContent from "./pages/experience/ExperienceContent";
-import InterviewContent from "./pages/interview/InterviewContent";
-import ProjectContent from "./pages/project/ProjectContent";
-import SkillContent from "./pages/skill/SkillContent";
-import ToolsContent from "./pages/skill/ToolsContent";
-
+import { Header } from "./components/layout/Header";
+import { Footer } from "./components/layout/Footer";
+import { FloatingActions } from "./components/layout/FloatingActions";
+import { AboutSection } from "./components/sections/AboutSection";
+import { InterviewSection } from "./components/sections/InterviewSection";
+import { SkillsSection } from "./components/sections/SkillsSection";
+import { ExperienceSection } from "./components/sections/ExperienceSection";
+import { ProjectsSection } from "./components/sections/ProjectsSection";
+import "./styles/globals.css";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 function App() {
-  setTimeout(function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, 70);
-
   return (
-    <div className="App">
-      <TopButton />
-      <Header></Header>
-      <AboutContent></AboutContent>
-      <InterviewContent />
-      <SkillContent />
-      <ToolsContent />
-      <ExperienceContent></ExperienceContent>
-      <ProjectContent></ProjectContent>
-
-      <footer>
-        <div className="center">
-          <span>
-            Copyright 2025. Web Front-end developer portfolio-- by JoSoYeon 💗
-          </span>
-        </div>
-      </footer>
-    </div>
+    <>
+      <SpeedInsights />
+      <Header />
+      <main>
+        <AboutSection />
+        <InterviewSection />
+        <SkillsSection />
+        <ExperienceSection />
+        <ProjectsSection />
+      </main>
+      <Footer />
+      <FloatingActions />
+    </>
   );
 }
 
