@@ -65,15 +65,15 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <Github size={14} />
               </IconButton>
             )}
-            {project.blogLink && (
+            {/* {project.blogLink && (
               <IconButton
                 label="블로그"
                 onClick={(e) => openExternalLink(project.blogLink, e)}
               >
                 <AppWindow size={14} />
               </IconButton>
-            )}
-            <IconButton label="닫기" variant="ghost" onClick={onClose}>
+            )} */}
+            <IconButton label="닫기" onClick={onClose}>
               <X size={14} />
             </IconButton>
           </div>
@@ -87,11 +87,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             )}
           </div>
 
-          <img
-            src={project.img}
-            alt={project.title}
-            className="modal__image"
-          />
+          <img src={project.img} alt={project.title} className="modal__image" />
 
           <div className="modal__meta">
             <span>{formatPeriod(project.startDt, project.endDt)}</span>
