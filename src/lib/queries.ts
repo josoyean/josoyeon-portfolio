@@ -47,15 +47,21 @@ export async function fetchInterviews(): Promise<InterviewItem[]> {
 export async function fetchExperiences(): Promise<ExperienceItem[]> {
   const { data, error } = await supabase
     .from("experiences")
-    .select("*, project_seq(*)")
-    .order("created_at", { ascending: false });
+    .select("*, projects(*)")
+    .order("sort", { referencedTable: "projects", ascending: true });
 
   if (error) throw error;
-  return (data ?? []) as ExperienceItem[];
+
+  return ((data ?? []) as ExperienceItem[]).map((item) => ({
+    ...item,
+    projects: [...(item.projects ?? [])].sort((a, b) => a.sort - b.sort),
+  }));
 }
 
 export async function fetchIndividualProjects(): Promise<IndividualProject[]> {
-  const { data, error } = await supabase.from("individual-projects").select("*");
+  const { data, error } = await supabase
+    .from("individual-projects")
+    .select("*");
 
   if (error) throw error;
   return (data ?? []) as IndividualProject[];

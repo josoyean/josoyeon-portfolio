@@ -20,6 +20,7 @@ export interface ProjectSeqItem {
   startDt: string;
   endDt: string;
   seq: number;
+  sort: number;
   name: string;
   info: string;
   parts: string[];
@@ -36,7 +37,7 @@ export interface ExperienceItem {
   company: string;
   job: string;
   skills: string[];
-  project_seq?: ProjectSeqItem[];
+  projects?: ProjectSeqItem[];
 }
 
 export interface IndividualProject {

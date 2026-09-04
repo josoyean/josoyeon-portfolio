@@ -47,13 +47,14 @@ export interface Database {
           skills: string[];
         };
       };
-      project_seq: {
+      projects: {
         Row: {
           id: string;
           created_at: string;
           startDt: string;
           endDt: string;
           seq: number;
+          sort: number;
           name: string;
           info: string;
           parts: string[];

@@ -63,7 +63,7 @@ export function ExperienceSection() {
               <p className="experience-company__role">{company.job}</p>
 
               <div className="experience-projects">
-                {company.project_seq?.map((project) => (
+                {company.projects?.map((project) => (
                   <article key={project.id} className="experience-project">
                     <div className="experience-project__title-row">
                       <h4 className="experience-project__title">

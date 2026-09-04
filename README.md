@@ -124,8 +124,8 @@ export async function fetchSkills(): Promise<SkillItem[]> {
 export async function fetchExperiences(): Promise<ExperienceItem[]> {
   const { data, error } = await supabase
     .from("experiences")
-    .select("*, project_seq(*)")
-    .order("created_at", { ascending: false });
+    .select("*, projects(*)")
+    .order("sort", { referencedTable: "projects", ascending: true });
 
   if (error) throw error;
   return (data ?? []) as ExperienceItem[];
