@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { AppWindow, ExternalLink, Github, X } from "lucide-react";
 import type { IndividualProject } from "../../types";
 import { formatPeriod } from "../../lib/dates";
-import { openExternalLink } from "../../lib/utils";
+import { openExternalLink, splitParagraphs } from "../../lib/utils";
 import { SanitizedHtml } from "../../lib/sanitizeHtml";
 import { useFocusTrap } from "../../hooks/useFocusTrap";
 import { IconButton } from "../ui";
@@ -81,9 +81,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="modal__body">
           <div className="modal__intro">
-            <span>{project.introduce}</span>
+            {splitParagraphs(project.introduce).map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
             {project.infor && (
-              <SanitizedHtml html={project.infor} as="em" className="" />
+              <SanitizedHtml html={project.infor} className="modal__infor" />
             )}
           </div>
 
@@ -102,7 +104,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               <h4 className="modal__section-title">Description</h4>
               <ul className="modal__list">
                 {project.parts.map((part, i) => (
-                  <li key={i}>{part}</li>
+                  <li key={i}>
+                    <strong>{part}</strong>
+                  </li>
                 ))}
               </ul>
             </div>

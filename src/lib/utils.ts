@@ -20,3 +20,11 @@ export function getErrorMessage(error: unknown): string {
   if (error instanceof Error) return error.message;
   return "알 수 없는 오류";
 }
+
+export function splitParagraphs(text: string): string[] {
+  return text
+    .replace(/<br\s*\/?>/gi, "\n")
+    .split(/\n+|(?<=다\.|요\.|습니다\.|니다\.)\s+/)
+    .map((part) => part.replace(/<[^>]+>/g, "").trim())
+    .filter(Boolean);
+}
