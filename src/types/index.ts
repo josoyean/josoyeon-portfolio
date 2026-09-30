@@ -40,6 +40,12 @@ export interface ExperienceItem {
   projects?: ProjectSeqItem[];
 }
 
+export interface ProjectPratItem {
+  info: string;
+  image: string;
+  code: string;
+}
+
 export interface IndividualProject {
   id: string;
   linkName: string;
@@ -57,4 +63,5 @@ export interface IndividualProject {
   img: string;
   skillLists?: { name: string; text: string }[];
   infor?: string;
+  isPrats?: ProjectPratItem[];
 }

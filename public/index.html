@@ -20,13 +20,22 @@
   <body>
     <noscript>JavaScript를 활성화해야 이 페이지를 볼 수 있습니다.</noscript>
     <div id="root"></div>
-    <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
-      if (!wcs_add) var wcs_add = {};
-      wcs_add["wa"] = "1c597367d3030a0";
-      if (window.wcs) {
-        wcs_do();
-      }
+      (function () {
+        var host = location.hostname;
+        if (host === "localhost" || host === "127.0.0.1" || host === "[::1]") {
+          return;
+        }
+
+        var script = document.createElement("script");
+        script.src = "//wcs.pstatic.net/wcslog.js";
+        script.onload = function () {
+          if (!window.wcs_add) window.wcs_add = {};
+          window.wcs_add["wa"] = "1c597367d3030a0";
+          if (window.wcs) wcs_do();
+        };
+        document.body.appendChild(script);
+      })();
     </script>
   </body>
 </html>

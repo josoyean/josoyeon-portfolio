@@ -3,6 +3,7 @@ import type {
   ExperienceItem,
   IndividualProject,
   InterviewItem,
+  ProjectPratItem,
   SkillItem,
 } from "../types";
 
@@ -58,11 +59,30 @@ export async function fetchExperiences(): Promise<ExperienceItem[]> {
   }));
 }
 
+function normalizeIsPrats(value: unknown): ProjectPratItem[] {
+  try {
+    const parsed = typeof value === "string" ? JSON.parse(value) : value;
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed.filter(
+      (item): item is ProjectPratItem =>
+        Boolean(item) &&
+        typeof item === "object" &&
+        typeof item.info === "string",
+    );
+  } catch {
+    return [];
+  }
+}
+
 export async function fetchIndividualProjects(): Promise<IndividualProject[]> {
   const { data, error } = await supabase
     .from("individual-projects")
     .select("*");
 
   if (error) throw error;
-  return (data ?? []) as IndividualProject[];
+  return ((data ?? []) as IndividualProject[]).map((item) => ({
+    ...item,
+    isPrats: normalizeIsPrats(item.isPrats),
+  }));
 }

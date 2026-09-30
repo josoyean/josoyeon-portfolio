@@ -81,6 +81,7 @@ export interface Database {
           img: string;
           skillLists: { name: string; text: string }[] | null;
           infor: string | null;
+          isPrats: { info: string; image: string; code: string }[] | null;
         };
       };
     };

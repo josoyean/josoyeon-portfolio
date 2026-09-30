@@ -24,7 +24,6 @@ export function ProjectsSection() {
     queryFn: fetchIndividualProjects,
   });
 
-  // 상세 모달은 유지하되, 카드 클릭으로는 열지 않습니다.
   const [selected, setSelected] = useState<IndividualProject | null>(null);
 
   return (
@@ -45,7 +44,11 @@ export function ProjectsSection() {
         <ul className="projects-list">
           {data.map((project, index) => (
             <li key={project.id}>
-              <ProjectFeatureCard project={project} reversed={index % 2 === 1} />
+              <ProjectFeatureCard
+                project={project}
+                reversed={index % 2 === 1}
+                onOpen={() => setSelected(project)}
+              />
             </li>
           ))}
         </ul>
@@ -63,9 +66,11 @@ export function ProjectsSection() {
 function ProjectFeatureCard({
   project,
   reversed,
+  onOpen,
 }: {
   project: IndividualProject;
   reversed: boolean;
+  onOpen: () => void;
 }) {
   const title = project.title || project.introduce;
   const summary = project.title ? project.introduce : "";
@@ -74,7 +79,7 @@ function ProjectFeatureCard({
   const techNames =
     project.skillLists?.map((skill) => skill.name).filter(Boolean) ?? [];
   const skillIcons = (project.skills ?? []).filter((src) =>
-    /^https?:\/\//.test(src)
+    /^https?:\/\//.test(src),
   );
 
   return (
@@ -109,7 +114,10 @@ function ProjectFeatureCard({
             <p key={paragraph}>{paragraph}</p>
           ))}
           {project.infor && (
-            <SanitizedHtml html={project.infor} className="project-feature__infor" />
+            <SanitizedHtml
+              html={project.infor}
+              className="project-feature__infor"
+            />
           )}
         </div>
 
@@ -142,6 +150,13 @@ function ProjectFeatureCard({
               Demo →
             </button>
           )}
+          <button
+            type="button"
+            className="project-feature__link"
+            onClick={onOpen}
+          >
+            자세히 보기 →
+          </button>
         </div>
       </div>
     </article>
