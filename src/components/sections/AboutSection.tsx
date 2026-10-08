@@ -2,7 +2,7 @@ import { Calendar, GraduationCap, Mail, MapPin } from "lucide-react";
 import { SectionWrapper } from "../ui";
 import { asset } from "../../lib/utils";
 
-const RESUME_PDF = asset(encodeURI("/조소연_자기소개서_경력기술서.pdf"));
+const RESUME_PDF = asset(encodeURI("/조소연_경력기술서.pdf"));
 
 const PROFILE_DETAILS = [
   { icon: Calendar, label: "1996.10.16" },
