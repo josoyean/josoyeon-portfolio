@@ -28,7 +28,7 @@ export function ExperienceSection() {
     if (!data?.length) return "";
     const totalMonths = data.reduce(
       (sum, item) => sum + diffMonths(item.startDt, item.endDt),
-      0
+      0,
     );
     return formatDuration(totalMonths);
   }, [data]);
@@ -72,9 +72,7 @@ export function ExperienceSection() {
                       {project.pageLink && (
                         <IconButton
                           label="데모 링크"
-                          onClick={(e) =>
-                            openExternalLink(project.pageLink, e)
-                          }
+                          onClick={(e) => openExternalLink(project.pageLink, e)}
                         >
                           <ExternalLink size={14} />
                         </IconButton>
@@ -84,6 +82,17 @@ export function ExperienceSection() {
                     <time className="experience-project__period">
                       {formatPeriod(project.startDt, project.endDt)}
                     </time>
+                    {project.contribution &&
+                      project.contribution.length > 0 && (
+                        <div className="experience-project__detail">
+                          <span>Contribution</span>
+                          <ul>
+                            {project.contribution.map((item, i) => (
+                              <li key={i}>{item}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     {project.parts?.length > 0 && (
                       <div className="experience-project__detail">
                         <span>Role</span>

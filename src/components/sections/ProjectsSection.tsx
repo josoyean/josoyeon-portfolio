@@ -76,6 +76,7 @@ function ProjectFeatureCard({
   const summary = project.title ? project.introduce : "";
   const summaryParagraphs = summary ? splitParagraphs(summary) : [];
   const highlights = project.parts?.slice(0, 3) ?? [];
+  const contributions = (project.contribution ?? []).filter(Boolean);
   const techNames =
     project.skillLists?.map((skill) => skill.name).filter(Boolean) ?? [];
   const skillIcons = (project.skills ?? []).filter((src) =>
@@ -97,6 +98,12 @@ function ProjectFeatureCard({
 
       <div className="project-feature__body">
         <h3 className="project-feature__title">{title}</h3>
+
+        {contributions.length > 0 && (
+          <ul className="project-feature__contribution">
+            {contributions?.join(" · ")}
+          </ul>
+        )}
 
         {techNames.length > 0 && (
           <p className="project-feature__tech">TECH: {techNames.join(", ")}</p>

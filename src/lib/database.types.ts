@@ -58,6 +58,7 @@ export interface Database {
           name: string;
           info: string;
           parts: string[];
+          contribution: string[] | null;
           impact: string[] | null;
           skills_img: string[];
           pageLink: string;
@@ -76,6 +77,7 @@ export interface Database {
           blogLink: string;
           codeLink: string;
           parts: string[];
+          contribution: string[] | null;
           introduce: string;
           pageLink: string | null;
           img: string;

@@ -24,6 +24,7 @@ export interface ProjectSeqItem {
   name: string;
   info: string;
   parts: string[];
+  contribution?: string[] | null;
   impact?: string[];
   skills_img: string[];
   pageLink: string;
@@ -58,6 +59,7 @@ export interface IndividualProject {
   blogLink: string;
   codeLink: string;
   parts: string[];
+  contribution?: string[] | null;
   introduce: string;
   pageLink?: string;
   img: string;

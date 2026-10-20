@@ -573,6 +573,31 @@ img {
   margin-bottom: 10px;
 }
 
+.project-feature__contribution {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: -2px 0 14px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #000;
+}
+
+.project-feature__contribution li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-feature__contribution-divider {
+  color: var(--color-border-strong);
+  user-select: none;
+}
+
 .project-feature__tech {
   font-size: 0.8125rem;
   font-weight: 600;
