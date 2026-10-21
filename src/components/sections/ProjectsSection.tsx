@@ -95,10 +95,8 @@ function ProjectFeatureCard({
           loading="lazy"
         />
       </div>
-
       <div className="project-feature__body">
         <h3 className="project-feature__title">{title}</h3>
-
         {contributions.length > 0 && (
           <ul className="project-feature__contribution">
             {contributions?.join(" · ")}

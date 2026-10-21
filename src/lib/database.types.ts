@@ -57,9 +57,15 @@ export interface Database {
           sort: number;
           name: string;
           info: string;
-          parts: string[];
           contribution: string[] | null;
-          impact: string[] | null;
+          cases:
+            | {
+                title: string;
+                problem: string;
+                solution: string[];
+                result: string;
+              }[]
+            | null;
           skills_img: string[];
           pageLink: string;
         };
@@ -83,7 +89,13 @@ export interface Database {
           img: string;
           skillLists: { name: string; text: string }[] | null;
           infor: string | null;
-          isPrats: { info: string; image: string; code: string }[] | null;
+          isPrats: {
+            problem: string;
+            solution: string;
+            result: string;
+            image: string | null;
+            code: string;
+          }[] | null;
         };
       };
     };

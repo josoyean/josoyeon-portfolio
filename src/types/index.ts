@@ -14,6 +14,13 @@ export interface InterviewItem {
   order: number;
 }
 
+export interface ProjectProblemItem {
+  title: string;
+  problem: string;
+  solution: string[];
+  result: string;
+}
+
 export interface ProjectSeqItem {
   id: string;
   created_at: string;
@@ -23,9 +30,8 @@ export interface ProjectSeqItem {
   sort: number;
   name: string;
   info: string;
-  parts: string[];
   contribution?: string[] | null;
-  impact?: string[];
+  cases?: ProjectProblemItem[] | null;
   skills_img: string[];
   pageLink: string;
 }
@@ -42,8 +48,10 @@ export interface ExperienceItem {
 }
 
 export interface ProjectPratItem {
-  info: string;
-  image: string;
+  problem: string;
+  solution: string;
+  result: string;
+  image: string | null;
   code: string;
 }
 

@@ -7,7 +7,7 @@ import { SkillsSection } from "./components/sections/SkillsSection";
 import { ExperienceSection } from "./components/sections/ExperienceSection";
 import { ProjectsSection } from "./components/sections/ProjectsSection";
 import "./styles/globals.css";
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import { SpeedInsights } from "@vercel/speed-insights/react";
 function App() {
   return (
     <>
@@ -15,10 +15,10 @@ function App() {
       <Header />
       <main>
         <AboutSection />
-        <InterviewSection />
         <SkillsSection />
         <ExperienceSection />
         <ProjectsSection />
+        <InterviewSection />
       </main>
       <Footer />
       <FloatingActions />

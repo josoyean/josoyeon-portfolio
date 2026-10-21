@@ -56,12 +56,27 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {!!project.isPrats?.length && (
             <ul className="modal__prat-list">
               {project.isPrats.map((item, i) => (
-                <li key={`${item.info}-${i}`} className="modal__prat-item">
-                  {item.info && <p className="modal__prat-info">{item.info}</p>}
+                <li key={`${item.problem}-${i}`} className="modal__prat-item">
+                  <div className="modal__prat-block">
+                    <span>문제</span>
+                    <p>{item.problem}</p>
+                  </div>
+                  {item.solution && (
+                    <div className="modal__prat-block">
+                      <span>해결</span>
+                      <p>{item.solution}</p>
+                    </div>
+                  )}
+                  {item.result && (
+                    <div className="modal__prat-block">
+                      <span>결과</span>
+                      <p>{item.result}</p>
+                    </div>
+                  )}
                   {item.image && (
                     <img
                       src={item.image}
-                      alt={item.info || "구현 예시"}
+                      alt="구현 예시"
                       className="modal__prat-image"
                     />
                   )}

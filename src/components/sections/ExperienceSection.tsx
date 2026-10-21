@@ -85,7 +85,7 @@ export function ExperienceSection() {
                     {project.contribution &&
                       project.contribution.length > 0 && (
                         <div className="experience-project__detail">
-                          <span>Contribution</span>
+                          <span>기여도</span>
                           <ul>
                             {project.contribution.map((item, i) => (
                               <li key={i}>{item}</li>
@@ -93,24 +93,35 @@ export function ExperienceSection() {
                           </ul>
                         </div>
                       )}
-                    {project.parts?.length > 0 && (
-                      <div className="experience-project__detail">
-                        <span>Role</span>
-                        <ul>
-                          {project.parts.map((part, i) => (
-                            <li key={i}>{part}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {project.impact && project.impact.length > 0 && (
-                      <div className="experience-project__detail">
-                        <span>Impact</span>
-                        <ul>
-                          {project.impact.map((item, i) => (
-                            <li key={i}>{item}</li>
-                          ))}
-                        </ul>
+                    {!!project.cases?.length && (
+                      <div className="experience-cases">
+                        {project.cases?.map((item) => (
+                          <article key={item.title} className="experience-case">
+                            <h5 className="experience-case__title">
+                              {item.title}
+                            </h5>
+                            <div className="experience-case__block">
+                              <span>문제</span>
+                              <p>{item.problem}</p>
+                            </div>
+                            {item.solution.length > 0 && (
+                              <div className="experience-case__block">
+                                <span>해결방법</span>
+                                <ul>
+                                  {item.solution.map((line, i) => (
+                                    <li key={i}>{line}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                            {item.result && (
+                              <div className="experience-case__block">
+                                <span>결과</span>
+                                <p>{item.result}</p>
+                              </div>
+                            )}
+                          </article>
+                        ))}
                       </div>
                     )}
                     {project.skills_img?.length > 0 && (
