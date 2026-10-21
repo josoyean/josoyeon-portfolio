@@ -48,6 +48,7 @@ export interface ExperienceItem {
 }
 
 export interface ProjectPratItem {
+  title: string;
   problem: string;
   solution: string;
   result: string;
@@ -59,14 +60,12 @@ export interface IndividualProject {
   id: string;
   linkName: string;
   skills: string[];
-  myWork: string[];
-  position: string;
+
   title: string;
   startDt: string;
   endDt: string | null;
   blogLink: string;
   codeLink: string;
-  parts: string[];
   contribution?: string[] | null;
   introduce: string;
   pageLink?: string;

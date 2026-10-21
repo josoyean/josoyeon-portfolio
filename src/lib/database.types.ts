@@ -75,27 +75,27 @@ export interface Database {
           id: string;
           linkName: string;
           skills: string[];
-          myWork: string[];
-          position: string;
           title: string;
           startDt: string;
           endDt: string | null;
           blogLink: string;
           codeLink: string;
-          parts: string[];
           contribution: string[] | null;
           introduce: string;
           pageLink: string | null;
           img: string;
           skillLists: { name: string; text: string }[] | null;
           infor: string | null;
-          isPrats: {
-            problem: string;
-            solution: string;
-            result: string;
-            image: string | null;
-            code: string;
-          }[] | null;
+          isPrats:
+            | {
+                title: string;
+                problem: string;
+                solution: string;
+                result: string;
+                image: string | null;
+                code: string;
+              }[]
+            | null;
         };
       };
     };

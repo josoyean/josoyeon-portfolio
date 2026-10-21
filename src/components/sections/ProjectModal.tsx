@@ -56,7 +56,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {!!project.isPrats?.length && (
             <ul className="modal__prat-list">
               {project.isPrats.map((item, i) => (
-                <li key={`${item.problem}-${i}`} className="modal__prat-item">
+                <li key={`${item.title}-${i}`} className="modal__prat-item">
+                  {item.title && (
+                    <h4 className="modal__prat-title">{item.title}</h4>
+                  )}
                   <div className="modal__prat-block">
                     <span>문제</span>
                     <p>{item.problem}</p>

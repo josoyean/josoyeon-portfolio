@@ -5,7 +5,6 @@ import { fetchIndividualProjects, queryKeys } from "../../lib/queries";
 import {
   getErrorMessage,
   openExternalLink,
-  splitParagraphs,
 } from "../../lib/utils";
 import { SanitizedHtml } from "../../lib/sanitizeHtml";
 import {
@@ -74,8 +73,6 @@ function ProjectFeatureCard({
 }) {
   const title = project.title || project.introduce;
   const summary = project.title ? project.introduce : "";
-  const summaryParagraphs = summary ? splitParagraphs(summary) : [];
-  const highlights = project.parts?.slice(0, 3) ?? [];
   const contributions = (project.contribution ?? []).filter(Boolean);
   const techNames =
     project.skillLists?.map((skill) => skill.name).filter(Boolean) ?? [];
@@ -97,6 +94,7 @@ function ProjectFeatureCard({
       </div>
       <div className="project-feature__body">
         <h3 className="project-feature__title">{title}</h3>
+        {summary && <p className="project-feature__summary">{summary}</p>}
         {contributions.length > 0 && (
           <ul className="project-feature__contribution">
             {contributions?.join(" · ")}
@@ -114,26 +112,11 @@ function ProjectFeatureCard({
           </div>
         )}
 
-        <div className="project-feature__desc">
-          {summaryParagraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          {project.infor && (
-            <SanitizedHtml
-              html={project.infor}
-              className="project-feature__infor"
-            />
-          )}
-        </div>
-
-        {highlights.length > 0 && (
-          <div className="project-feature__highlights">
-            {highlights.map((part) => (
-              <p key={part}>
-                <strong>{part}</strong>
-              </p>
-            ))}
-          </div>
+        {project.infor && (
+          <SanitizedHtml
+            html={project.infor}
+            className="project-feature__infor"
+          />
         )}
 
         <div className="project-feature__links">
